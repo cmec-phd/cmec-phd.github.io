@@ -3,7 +3,10 @@
 {% unless page.lang == site.default_lang %}{% assign prefix = "/" | append: page.lang %}{% endunless %}
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="{{ prefix | append: '/' | relative_url }}">CMEC PhD</a>
+    <a class="brand" href="{{ prefix | append: '/' | relative_url }}">
+      <img class="brand-mark" src="{{ '/assets/images/logo/cmec-logo-white.svg' | relative_url }}" alt="">
+      CMEC PhD
+    </a>
     <nav class="site-nav">
       <a href="{{ prefix | append: '/programme/' | relative_url }}">{{ t.nav.programme }}</a>
       <a href="{{ prefix | append: '/people/' | relative_url }}">{{ t.nav.people }}</a>
@@ -12,6 +15,9 @@
       <a href="{{ prefix | append: '/news/' | relative_url }}">{{ t.nav.news }}</a>
       <a href="{{ prefix | append: '/contacts/' | relative_url }}">{{ t.nav.contacts }}</a>
     </nav>
-    {% include lang-switcher.html %}
+    <div class="header-meta">
+      <span class="cycle-badge">{{ t.nav.cycle_badge }}</span>
+      {% include lang-switcher.html %}
+    </div>
   </div>
 </header>

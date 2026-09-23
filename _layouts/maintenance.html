@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>CMEC PhD — Coming soon</title>
   <meta name="robots" content="noindex">
+  <link rel="icon" href="{{ '/assets/images/favicon.svg' | relative_url }}">
   <style>
     :root { color-scheme: light dark; }
     body {
@@ -13,15 +14,18 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-      background: #10121a;
-      color: #f2f2f2;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: #0b1220;
+      color: #f2f4f8;
       text-align: center;
       padding: 2rem;
       box-sizing: border-box;
     }
     main { max-width: 640px; }
+    .mark { width: 190px; height: auto; margin: 0 auto 1.5rem; display: block; }
     h1 {
+      font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, "Noto Serif", serif;
+      font-weight: 700;
       font-size: 1.75rem;
       letter-spacing: 0.02em;
       margin-bottom: 0.25rem;
@@ -46,6 +50,7 @@
 </head>
 <body>
   <main>
+    <img class="mark" src="{{ '/assets/images/logo/cmec-logo-white.svg' | relative_url }}" alt="">
     <h1>CMEC PhD</h1>
     <p class="tagline">
       Composizione musicale elettroacustica computazionale, modelli algoritmici generativi e complessità computazionale

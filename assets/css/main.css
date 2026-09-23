@@ -1,11 +1,15 @@
 :root {
-  --bg: #0f1115;
-  --bg-alt: #171a21;
-  --fg: #f2f2f2;
-  --fg-muted: #a3a8b4;
-  --accent: #c9433c;
-  --border: #2a2e37;
+  --bg: #0b1220;
+  --bg-alt: #121d30;
+  --fg: #f2f4f8;
+  --fg-muted: #93a1b8;
+  --accent: #2f86d6;
+  --accent-deep: #0061a5;
+  --border: #1e2b40;
   --max-width: 1080px;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-serif: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, "Noto Serif", serif;
+  --font-mono: ui-monospace, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
 }
 
 * { box-sizing: border-box; }
@@ -14,9 +18,11 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--fg);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-family: var(--font-sans);
   line-height: 1.55;
 }
+
+h1 { font-family: var(--font-serif); font-weight: 700; }
 
 .wrap {
   max-width: var(--max-width);
@@ -40,19 +46,33 @@ a:hover { text-decoration: underline; }
   padding-bottom: 1rem;
   flex-wrap: wrap;
 }
-.brand { font-weight: 700; color: var(--fg); font-size: 1.1rem; }
+.brand { display: flex; align-items: center; gap: 0.6rem; font-family: var(--font-serif); font-weight: 700; color: var(--fg); font-size: 1.1rem; }
+.brand-mark { height: 28px; width: auto; display: block; }
 .site-nav { display: flex; gap: 1.1rem; flex-wrap: wrap; margin-left: auto; }
 .site-nav a { color: var(--fg-muted); font-size: 0.92rem; }
 .site-nav a:hover { color: var(--fg); }
+.header-meta { display: flex; align-items: center; gap: 1rem; }
+.cycle-badge {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  padding: 0.2rem 0.65rem;
+  white-space: nowrap;
+}
 .lang-switcher { display: flex; gap: 0.4rem; font-size: 0.85rem; }
 .lang-switcher .lang-current { color: var(--fg); font-weight: 700; }
 .lang-switcher a { color: var(--fg-muted); }
 
 /* Hero */
-.hero { padding: 5rem 0 3rem; text-align: center; }
-.hero h1 { font-size: 2.4rem; margin-bottom: 0.5rem; }
-.hero-tagline { font-size: 1.1rem; color: var(--fg-muted); max-width: 640px; margin: 0 auto 0.75rem; }
-.hero-institution { font-size: 0.9rem; color: var(--fg-muted); }
+.hero { padding: 4.5rem 0 3rem; text-align: center; }
+.hero-mark { width: 220px; height: auto; margin: 0 auto 1.5rem; display: block; }
+.hero-kicker { font-size: 0.95rem; font-weight: 500; color: var(--fg-muted); margin: 0 0 0.5rem; }
+.hero h1 { font-size: 1.85rem; line-height: 1.35; max-width: 760px; margin: 0 auto 0.75rem; }
+.hero-institution { font-family: var(--font-mono); font-size: 0.8rem; color: var(--fg-muted); }
 
 /* Card grid */
 .card-grid { padding: 1rem 0 4rem; }

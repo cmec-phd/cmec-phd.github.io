@@ -6,9 +6,10 @@ nav:
   productions: "Music Production"
   news: "News & Events"
   contacts: "Contacts"
+  cycle_badge: "Cycle XLI · ongoing"
 
 home:
-  hero_title: "CMEC PhD"
+  hero_kicker: "Doctoral programme"
   hero_tagline: "Computational Electroacoustic Music Composition, Generative Algorithmic Models and Computational Complexity"
   hero_institution: "Conservatorio di Musica \"N. Piccinni\" di Bari — Cycle XLI"
 

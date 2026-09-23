@@ -6,9 +6,10 @@ nav:
   productions: "Produzioni Musicali"
   news: "News & Eventi"
   contacts: "Contatti"
+  cycle_badge: "XLI ciclo · in corso"
 
 home:
-  hero_title: "Dottorato CMEC"
+  hero_kicker: "Dottorato di ricerca"
   hero_tagline: "Composizione musicale elettroacustica computazionale, modelli algoritmici generativi e complessità computazionale"
   hero_institution: "Conservatorio di Musica \"N. Piccinni\" di Bari — Ciclo XLI"
 

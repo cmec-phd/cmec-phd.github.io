@@ -1,0 +1,17 @@
+---
+layout: page
+lang: it
+permalink: /people/
+title: Persone
+---
+{% assign items = site.people | where: "lang", "it" | sort: "order" %}
+<ul class="item-list">
+  {% for item in items %}
+  <li>
+    <h2><a href="{{ item.url | relative_url }}">{{ item.title }}</a></h2>
+    {% if item.role %}<p class="meta">{{ item.role }}</p>{% endif %}
+  </li>
+  {% else %}
+  <li><em>Nessuna scheda pubblicata ancora.</em></li>
+  {% endfor %}
+</ul>

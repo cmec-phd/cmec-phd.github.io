@@ -1,0 +1,20 @@
+---
+layout: default
+---
+<article class="page person">
+  <div class="wrap">
+    {% if page.photo %}<img class="person-photo" src="{{ page.photo | relative_url }}" alt="{{ page.title }}">{% endif %}
+    <h1>{{ page.title }}</h1>
+    {% if page.role %}<p class="person-role">{{ page.role }}</p>{% endif %}
+    <div class="page-content">
+      {{ content }}
+    </div>
+    {% if page.links %}
+    <ul class="person-links">
+      {% for link in page.links %}
+        <li><a href="{{ link.url }}">{{ link.label }}</a></li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </div>
+</article>

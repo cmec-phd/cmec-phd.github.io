@@ -1,0 +1,14 @@
+---
+layout: default
+---
+<article class="page research-item">
+  <div class="wrap">
+    <h1>{{ page.title }}</h1>
+    {% if page.date %}<p class="meta">{{ page.date | date: "%B %Y" }}</p>{% endif %}
+    {% if page.authors %}<p class="meta">{{ page.authors | join: ", " }}</p>{% endif %}
+    <div class="page-content">
+      {{ content }}
+    </div>
+    {% if page.link %}<p><a href="{{ page.link }}">{{ page.link_label | default: "Link" }}</a></p>{% endif %}
+  </div>
+</article>

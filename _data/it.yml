@@ -1,0 +1,20 @@
+nav:
+  home: "Home"
+  programme: "Il Dottorato"
+  people: "Persone"
+  research: "Ricerca"
+  productions: "Produzioni Musicali"
+  news: "News & Eventi"
+  contacts: "Contatti"
+
+home:
+  hero_title: "Dottorato CMEC"
+  hero_tagline: "Composizione musicale elettroacustica computazionale, modelli algoritmici generativi e complessità computazionale"
+  hero_institution: "Conservatorio di Musica \"N. Piccinni\" di Bari — Ciclo XLI"
+
+footer:
+  institution: "Conservatorio di Musica \"N. Piccinni\" di Bari"
+  rights: "Tutti i diritti riservati."
+
+lang_switcher:
+  label: "Lingua"

@@ -1,0 +1,25 @@
+{% comment %}
+  jekyll-polyglot rewrites, at build time, any attribute value in the
+  rendered HTML that it recognises as an internal link (href, but also
+  plain data-* paths) to force the CURRENT active language's prefix onto
+  it — great for same-language links (see nav.html), but it silently
+  corrupts a deliberate link to the *other* language back to the current
+  one, no matter how that path is embedded server-side. So no path is
+  written into the static HTML at all here: the toggle target is computed
+  client-side from the current URL, after the build-time rewrite has
+  already happened.
+{% endcomment %}
+<div class="lang-switcher">
+  <span class="lang-current">{{ page.lang | upcase }}</span>
+  <a class="lang-toggle" href="#">{% if page.lang == site.default_lang %}EN{% else %}IT{% endif %}</a>
+</div>
+<script>
+  (function () {
+    var links = document.querySelectorAll(".lang-toggle");
+    var path = window.location.pathname;
+    var target = (path.indexOf("/en/") === 0 || path === "/en")
+      ? (path.replace(/^\/en/, "") || "/")
+      : ("/en" + path);
+    links.forEach(function (a) { a.setAttribute("href", target); });
+  })();
+</script>

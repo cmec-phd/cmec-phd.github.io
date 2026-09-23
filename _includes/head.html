@@ -1,0 +1,7 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% if page.title %}{{ page.title }} — {% endif %}CMEC PhD</title>
+{% assign t = site.data[page.lang] %}
+<meta name="description" content="{{ t.home.hero_tagline }}">
+<link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+<link rel="icon" href="{{ '/assets/images/favicon.svg' | relative_url }}">

@@ -1,0 +1,38 @@
+---
+layout: default
+---
+{% assign t = site.data[page.lang] %}
+{% assign prefix = "" %}
+{% unless page.lang == site.default_lang %}{% assign prefix = "/" | append: page.lang %}{% endunless %}
+<section class="hero">
+  <div class="wrap">
+    <h1>{{ t.home.hero_title }}</h1>
+    <p class="hero-tagline">{{ t.home.hero_tagline }}</p>
+    <p class="hero-institution">{{ t.home.hero_institution }}</p>
+  </div>
+</section>
+
+<section class="card-grid">
+  <div class="wrap">
+    <a class="card" href="{{ prefix | append: '/programme/' | relative_url }}">
+      <h2>{{ t.nav.programme }}</h2>
+    </a>
+    <a class="card" href="{{ prefix | append: '/people/' | relative_url }}">
+      <h2>{{ t.nav.people }}</h2>
+    </a>
+    <a class="card" href="{{ prefix | append: '/research/' | relative_url }}">
+      <h2>{{ t.nav.research }}</h2>
+    </a>
+    <a class="card" href="{{ prefix | append: '/productions/' | relative_url }}">
+      <h2>{{ t.nav.productions }}</h2>
+    </a>
+    <a class="card" href="{{ prefix | append: '/news/' | relative_url }}">
+      <h2>{{ t.nav.news }}</h2>
+    </a>
+    <a class="card" href="{{ prefix | append: '/contacts/' | relative_url }}">
+      <h2>{{ t.nav.contacts }}</h2>
+    </a>
+  </div>
+</section>
+
+{{ content }}

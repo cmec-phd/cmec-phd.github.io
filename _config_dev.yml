@@ -1,0 +1,11 @@
+# Local development overrides.
+# Run with:
+#   bundle exec jekyll serve --config _config.yml,_config_dev.yml
+#
+# This shows the real site (not the "coming soon" maintenance page)
+# regardless of the `under_construction` flag in _config.yml.
+
+url: "http://localhost:4000"
+baseurl: ""
+
+under_construction: false

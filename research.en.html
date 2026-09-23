@@ -1,0 +1,17 @@
+---
+layout: page
+lang: en
+permalink: /research/
+title: Research
+---
+{% assign items = site.research | where: "lang", "en" | sort: "date" | reverse %}
+<ul class="item-list">
+  {% for item in items %}
+  <li>
+    <h2><a href="{{ item.url | relative_url }}">{{ item.title }}</a></h2>
+    {% if item.date %}<p class="meta">{{ item.date | date: "%B %Y" }}</p>{% endif %}
+  </li>
+  {% else %}
+  <li><em>No content published yet.</em></li>
+  {% endfor %}
+</ul>

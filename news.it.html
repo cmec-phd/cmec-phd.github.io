@@ -1,0 +1,17 @@
+---
+layout: page
+lang: it
+permalink: /news/
+title: News & Eventi
+---
+{% assign items = site.news | where: "lang", "it" | sort: "date" | reverse %}
+<ul class="item-list">
+  {% for item in items %}
+  <li>
+    <h2><a href="{{ item.url | relative_url }}">{{ item.title }}</a></h2>
+    {% if item.date %}<p class="meta">{{ item.date | date: "%d %B %Y" }}</p>{% endif %}
+  </li>
+  {% else %}
+  <li><em>Nessuna notizia pubblicata ancora.</em></li>
+  {% endfor %}
+</ul>

@@ -1,0 +1,19 @@
+---
+layout: default
+---
+<article class="page production">
+  <div class="wrap">
+    <h1>{{ page.title }}</h1>
+    {% if page.composer %}<p class="meta">{{ page.composer }}</p>{% endif %}
+    {% if page.date %}<p class="meta">{{ page.date | date: "%Y" }}</p>{% endif %}
+    <div class="page-content">
+      {{ content }}
+    </div>
+    {% if page.audio %}
+    <audio controls src="{{ page.audio | relative_url }}"></audio>
+    {% endif %}
+    {% if page.video %}
+    <div class="video-embed">{{ page.video }}</div>
+    {% endif %}
+  </div>
+</article>

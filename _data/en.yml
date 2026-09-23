@@ -1,0 +1,20 @@
+nav:
+  home: "Home"
+  programme: "The Programme"
+  people: "People"
+  research: "Research"
+  productions: "Music Production"
+  news: "News & Events"
+  contacts: "Contacts"
+
+home:
+  hero_title: "CMEC PhD"
+  hero_tagline: "Computational Electroacoustic Music Composition, Generative Algorithmic Models and Computational Complexity"
+  hero_institution: "Conservatorio di Musica \"N. Piccinni\" di Bari — Cycle XLI"
+
+footer:
+  institution: "Conservatorio di Musica \"N. Piccinni\" di Bari"
+  rights: "All rights reserved."
+
+lang_switcher:
+  label: "Language"

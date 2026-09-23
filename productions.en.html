@@ -1,0 +1,17 @@
+---
+layout: page
+lang: en
+permalink: /productions/
+title: Music Production
+---
+{% assign items = site.productions | where: "lang", "en" | sort: "date" | reverse %}
+<ul class="item-list">
+  {% for item in items %}
+  <li>
+    <h2><a href="{{ item.url | relative_url }}">{{ item.title }}</a></h2>
+    {% if item.composer %}<p class="meta">{{ item.composer }}{% if item.date %} — {{ item.date | date: "%Y" }}{% endif %}</p>{% endif %}
+  </li>
+  {% else %}
+  <li><em>No productions published yet.</em></li>
+  {% endfor %}
+</ul>

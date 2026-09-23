@@ -1,0 +1,81 @@
+title:
+  en: "CMEC PhD"
+  it: "Dottorato CMEC"
+tagline:
+  en: "Computational Electroacoustic Music Composition, Generative Algorithmic Models and Computational Complexity"
+  it: "Composizione musicale elettroacustica computazionale, modelli algoritmici generativi e complessità computazionale"
+description:
+  en: "Official website of the PhD programme at Conservatorio di Musica 'N. Piccinni' di Bari."
+  it: "Sito ufficiale del dottorato di ricerca del Conservatorio di Musica 'N. Piccinni' di Bari."
+
+url: "https://cmec-phd.github.io"
+baseurl: ""
+
+# Set to true to serve the maintenance/coming-soon page instead of the
+# real site on every route. Overridden locally by _config_dev.yml.
+under_construction: true
+
+institution:
+  name: "Conservatorio di Musica \"N. Piccinni\" di Bari"
+  cycle: "XLI"
+  academic_year: "2025/2026"
+
+# Languages
+languages: ["it", "en"]
+default_lang: "it"
+exclude_from_localization: ["assets", "images", "javascript"]
+parallel_localization: false
+
+collections:
+  people:
+    output: true
+    permalink: /:collection/:path/
+  research:
+    output: true
+    permalink: /:collection/:path/
+  productions:
+    output: true
+    permalink: /:collection/:path/
+  news:
+    output: true
+    permalink: /:collection/:path/
+
+defaults:
+  - scope:
+      path: ""
+      type: "people"
+    values:
+      layout: "person"
+  - scope:
+      path: ""
+      type: "research"
+    values:
+      layout: "research-item"
+  - scope:
+      path: ""
+      type: "productions"
+    values:
+      layout: "production"
+  - scope:
+      path: ""
+      type: "news"
+    values:
+      layout: "news-item"
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+
+plugins:
+  - jekyll-polyglot
+  - jekyll-feed
+  - jekyll-sitemap
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - CONTRIBUTING.md
+  - vendor/
+  - node_modules/
+  - "*.gemspec"

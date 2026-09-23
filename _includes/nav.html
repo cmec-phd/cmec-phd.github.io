@@ -1,0 +1,17 @@
+{% assign t = site.data[page.lang] %}
+{% assign prefix = "" %}
+{% unless page.lang == site.default_lang %}{% assign prefix = "/" | append: page.lang %}{% endunless %}
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="{{ prefix | append: '/' | relative_url }}">CMEC PhD</a>
+    <nav class="site-nav">
+      <a href="{{ prefix | append: '/programme/' | relative_url }}">{{ t.nav.programme }}</a>
+      <a href="{{ prefix | append: '/people/' | relative_url }}">{{ t.nav.people }}</a>
+      <a href="{{ prefix | append: '/research/' | relative_url }}">{{ t.nav.research }}</a>
+      <a href="{{ prefix | append: '/productions/' | relative_url }}">{{ t.nav.productions }}</a>
+      <a href="{{ prefix | append: '/news/' | relative_url }}">{{ t.nav.news }}</a>
+      <a href="{{ prefix | append: '/contacts/' | relative_url }}">{{ t.nav.contacts }}</a>
+    </nav>
+    {% include lang-switcher.html %}
+  </div>
+</header>

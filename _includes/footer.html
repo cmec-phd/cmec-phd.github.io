@@ -1,0 +1,7 @@
+{% assign t = site.data[page.lang] %}
+<footer class="site-footer">
+  <div class="wrap">
+    <p>{{ t.footer.institution }} &mdash; {{ t.footer.rights }} &copy; {{ site.time | date: '%Y' }}</p>
+    <p><a href="https://github.com/{{ site.github_username | default: 'cmec-phd' }}/cmec-phd.github.io">GitHub</a></p>
+  </div>
+</footer>

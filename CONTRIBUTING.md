@@ -58,6 +58,10 @@ automatically at `/research/<citekey>/`.
   their `aliases`) so the publication appears on their profile. LaTeX
   accents such as `{\'e}` are converted automatically.
 - **Citekey:** it becomes the URL, so don't change it once published.
+- **Home page:** the "Selected publications" column shows the citekeys
+  listed in `_data/featured.yml`, in that order, or the three most recent
+  entries when that list is empty. The selection lives there, not in the
+  `.bib` file, so re-exporting from Zotero never loses it.
 
 ## Adding a music production (`_productions/`)
 
@@ -68,7 +72,10 @@ Copy `_productions/TEMPLATE.md` into an `.it.md` / `.en.md` pair. Set
 ## Adding a news item / event (`_news/`)
 
 Copy `_news/TEMPLATE.md` into an `.it.md` / `.en.md` pair with `title` and
-`date`.
+`date`. For an event, `date` is the day it takes place: the home page lists
+events dated today or later under "Upcoming events", and falls back to the
+latest news when there are none. "Today" means the day the site was last
+built, so a past event leaves that list at the next build.
 
 ## Editing a fixed page (Home, The Programme, Contacts)
 

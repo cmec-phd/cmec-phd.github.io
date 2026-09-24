@@ -7,8 +7,13 @@ nav:
   news: "News & Eventi"
   contacts: "Contatti"
   cycle_badge: "XLI ciclo · in corso"
+  label: "Principale"
+  menu: "Menu"
+  skip: "Vai al contenuto"
 
 home:
+  meta_title: "Dottorato CMEC — Conservatorio di Musica \"N. Piccinni\" di Bari"
+  meta_description: "Dottorato di ricerca in composizione musicale elettroacustica computazionale, modelli algoritmici generativi e complessità computazionale presso il Conservatorio di Musica \"N. Piccinni\" di Bari."
   hero_kicker: "Dottorato di ricerca"
   hero_tagline: "Composizione musicale elettroacustica computazionale, modelli algoritmici generativi e complessità computazionale"
   hero_institution: "Conservatorio di Musica \"N. Piccinni\" di Bari — Ciclo XLI"
@@ -16,11 +21,11 @@ home:
   about_text: "Il dottorato di ricerca del Conservatorio \"N. Piccinni\" di Bari forma ricercatori e compositori nell'ambito della composizione elettroacustica computazionale, dei modelli algoritmici generativi e della complessità computazionale, unendo pratica artistica e ricerca scientifica."
   about_more: "Scopri il programma"
   selected_research: "Pubblicazioni in evidenza"
-  selected_news: "Prossimi eventi e novità"
+  upcoming_events: "Prossimi eventi"
+  latest_news: "Ultime novità"
   all_research: "Tutte le pubblicazioni"
   all_news: "Tutte le news"
   empty_research: "Nessuna pubblicazione ancora."
-  empty_news: "Nessun evento ancora."
 
 research:
   pubstate:

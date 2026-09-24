@@ -1,0 +1,10 @@
+# Research items shown in the home page's "Selected publications" column,
+# by BibTeX citekey (see _bibliography/research.bib), in display order.
+# Kept here rather than in the .bib file so that a fresh export from Zotero
+# never drops the selection. When the list is empty, the home page shows
+# the three most recent entries instead.
+#
+# research:
+#   - rossi2025granular
+#   - bianchi2024markov
+research: []

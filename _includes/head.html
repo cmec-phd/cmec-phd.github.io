@@ -1,7 +1,46 @@
+{% assign lang = page.lang | default: site.default_lang %}
+{% assign t = site.data[lang] %}
+{% assign site_title = site.title[lang] | default: "CMEC PhD" %}
+{% if page.layout == "home" %}
+  {% assign meta_title = t.home.meta_title %}
+{% elsif page.title %}
+  {% assign meta_title = page.title | append: " — " | append: site_title %}
+{% else %}
+  {% assign meta_title = site_title %}
+{% endif %}
+{% comment %}
+  Description: explicit `description` front matter, else the home text, else
+  the body of a collection item (abstract, bio, news text), else the site's.
+{% endcomment %}
+{% assign body = page.content | strip_html | normalize_whitespace %}
+{% if page.description %}
+  {% assign meta_description = page.description %}
+{% elsif page.layout == "home" %}
+  {% assign meta_description = t.home.meta_description %}
+{% elsif page.collection and body != "" %}
+  {% assign meta_description = body | truncate: 160 %}
+{% else %}
+  {% assign meta_description = site.description[lang] %}
+{% endif %}
+{% assign meta_description = meta_description | strip_html | normalize_whitespace | escape %}
+{% assign og_path = page.url %}
+{% unless lang == site.default_lang %}{% assign og_path = "/" | append: lang | append: page.url %}{% endunless %}
+{% if page.collection == "research" or page.collection == "news" %}{% assign og_type = "article" %}{% else %}{% assign og_type = "website" %}{% endif %}
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{% if page.title %}{{ page.title }} — {% endif %}CMEC PhD</title>
-{% assign t = site.data[page.lang] %}
-<meta name="description" content="{{ t.home.hero_tagline }}">
+<title>{{ meta_title | escape }}</title>
+<meta name="description" content="{{ meta_description }}">
+{% I18n_Headers %}
+<meta property="og:site_name" content="{{ site_title | escape }}">
+<meta property="og:title" content="{{ meta_title | escape }}">
+<meta property="og:description" content="{{ meta_description }}">
+<meta property="og:type" content="{{ og_type }}">
+<meta property="og:url" content="{{ og_path | absolute_url }}">
+<meta property="og:image" content="{{ '/assets/images/og-image.png' | absolute_url }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="{% if lang == 'en' %}en_GB{% else %}it_IT{% endif %}">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
 <link rel="icon" href="{{ '/assets/images/favicon.svg' | relative_url }}">
+<script>document.documentElement.classList.add("js");</script>

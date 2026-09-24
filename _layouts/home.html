@@ -21,17 +21,53 @@ layout: default
   </div>
 </section>
 
-{% assign research = site.research | where: "lang", page.lang | sort: "date" | reverse | slice: 0, 3 %}
-{% assign news = site.news | where: "lang", page.lang | sort: "date" | reverse | slice: 0, 3 %}
-<section class="home-selection">
+{% comment %}
+  Research: the citekeys listed in _data/featured.yml, in that order; the
+  three most recent entries when the list is empty.
+{% endcomment %}
+{% assign all_research = site.research | where: "lang", page.lang %}
+{% assign featured = site.data.featured.research %}
+{% if featured and featured.size > 0 %}
+  {% assign research = "" | split: "" %}
+  {% for key in featured %}
+    {% assign hit = all_research | where: "citekey", key | first %}
+    {% if hit %}{% assign research = research | push: hit %}{% endif %}
+  {% endfor %}
+{% else %}
+  {% assign research = all_research | sort: "date" | reverse | slice: 0, 3 %}
+{% endif %}
+
+{% comment %}
+  News: upcoming items (dated today or later, soonest first) when there are
+  any, otherwise the three latest. "Today" is the build date, so an event
+  moves out of "upcoming" at the first build after it took place. The column
+  is hidden when there is no news at all.
+{% endcomment %}
+{% assign all_news = site.news | where: "lang", page.lang | sort: "date" %}
+{% assign today = site.time | date: "%Y%m%d" | plus: 0 %}
+{% assign news = "" | split: "" %}
+{% for item in all_news %}
+  {% assign d = item.date | date: "%Y%m%d" | plus: 0 %}
+  {% if d >= today %}{% assign news = news | push: item %}{% endif %}
+{% endfor %}
+{% if news.size > 0 %}
+  {% assign news = news | slice: 0, 3 %}
+  {% assign news_title = t.home.upcoming_events %}
+{% else %}
+  {% assign news = all_news | reverse | slice: 0, 3 %}
+  {% assign news_title = t.home.latest_news %}
+{% endif %}
+
+<section class="home-selection{% if news.size == 0 %} home-selection--single{% endif %}">
   <div class="wrap">
     <div class="home-col">
       <h2>{{ t.home.selected_research }}</h2>
       <ul class="item-list">
         {% for item in research %}
         <li>
-          <h3><a href="{{ item.url | relative_url }}">{{ item.title }}</a></h3>
-          <p class="meta">{% include pubstate.html item=item lang=page.lang %}{% if item.authors %}{{ item.authors | join: ", " }}{% endif %}{% if item.authors and item.date %} — {% endif %}{% if item.date %}{{ item.date | date: "%Y" }}{% endif %}</p>
+          <h3{% if item.content_lang and item.content_lang != page.lang %} lang="{{ item.content_lang }}"{% endif %}><a href="{{ item.url | relative_url }}">{{ item.title }}</a></h3>
+          {% if item.authors %}<p class="meta">{{ item.authors | join: ", " }}</p>{% endif %}
+          <p class="meta">{% include pubstate.html item=item lang=page.lang %}{% if item.venue %}{{ item.venue }} · {% endif %}{{ item.date | date: "%Y" }}</p>
         </li>
         {% else %}
         <li><em>{{ t.home.empty_research }}</em></li>
@@ -39,20 +75,20 @@ layout: default
       </ul>
       <p><a class="more" href="{{ prefix | append: '/research/' | relative_url }}">{{ t.home.all_research }} →</a></p>
     </div>
+    {% if news.size > 0 %}
     <div class="home-col">
-      <h2>{{ t.home.selected_news }}</h2>
+      <h2>{{ news_title }}</h2>
       <ul class="item-list">
         {% for item in news %}
         <li>
           <h3><a href="{{ item.url | relative_url }}">{{ item.title }}</a></h3>
-          {% if item.date %}<p class="meta">{{ item.date | date: "%d/%m/%Y" }}</p>{% endif %}
+          {% if item.date %}<p class="meta"><time datetime="{{ item.date | date: '%Y-%m-%d' }}">{% if page.lang == "en" %}{{ item.date | date: "%-d %b %Y" }}{% else %}{{ item.date | date: "%d/%m/%Y" }}{% endif %}</time></p>{% endif %}
         </li>
-        {% else %}
-        <li><em>{{ t.home.empty_news }}</em></li>
         {% endfor %}
       </ul>
       <p><a class="more" href="{{ prefix | append: '/news/' | relative_url }}">{{ t.home.all_news }} →</a></p>
     </div>
+    {% endif %}
   </div>
 </section>
 

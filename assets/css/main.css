@@ -5,6 +5,7 @@
   --fg-muted: #93a1b8;
   --accent: #2f86d6;
   --accent-deep: #0061a5;
+  --accent-text: #4a9be6; /* accent for small text: >= 4.5:1 on --bg-alt and --bg */
   --border: #1e2b40;
   --max-width: 1080px;
   --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -32,6 +33,19 @@ h1 { font-family: var(--font-serif); font-weight: 700; }
 a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -3rem;
+  z-index: 10;
+  padding: 0.5rem 1rem;
+  background: var(--accent-deep);
+  color: #fff;
+  border-radius: 0 0 6px 6px;
+}
+.skip-link:focus { top: 0; }
+main:focus { outline: none; }
+
 /* Header */
 .site-header {
   border-bottom: 1px solid var(--border);
@@ -57,8 +71,8 @@ a:hover { text-decoration: underline; }
   font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: var(--accent);
-  border: 1px solid var(--accent);
+  color: var(--accent-text);
+  border: 1px solid var(--accent-text);
   border-radius: 999px;
   padding: 0.2rem 0.65rem;
   white-space: nowrap;
@@ -66,21 +80,69 @@ a:hover { text-decoration: underline; }
 .pubstate {
   display: inline-block;
   font-family: var(--font-sans);
-  font-size: 0.68rem;
+  font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: var(--accent);
-  border: 1px solid var(--accent);
+  color: var(--accent-text);
+  border: 1px solid var(--accent-text);
   border-radius: 999px;
   padding: 0.05rem 0.5rem;
   float: right;
   margin-left: 0.75rem;
   white-space: nowrap;
 }
-.lang-switcher { display: flex; gap: 0.4rem; font-size: 0.85rem; }
+.lang-switcher { display: flex; align-items: center; gap: 0.4rem; font-size: 0.85rem; }
 .lang-switcher .lang-current { color: var(--fg); font-weight: 700; }
 .lang-switcher a { color: var(--fg-muted); }
+
+/* Mobile menu: collapsed behind .nav-toggle below 60rem when JS is on
+   (the `js` class is set in head.html); without JS the links just wrap. */
+.nav-toggle { display: none; }
+@media (max-width: 59.99rem) {
+  .site-header .wrap { gap: 0.75rem 1rem; }
+  .header-meta { order: 2; margin-left: auto; }
+  .lang-switcher a { display: inline-block; padding: 0.35rem 0.3rem; }
+  .js .nav-toggle {
+    order: 3;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-height: 44px;
+    padding: 0 0.85rem;
+    background: none;
+    color: var(--fg);
+    font: inherit;
+    font-size: 0.9rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  .nav-toggle-icon,
+  .nav-toggle-icon::before,
+  .nav-toggle-icon::after {
+    display: block;
+    width: 16px;
+    height: 2px;
+    background: currentColor;
+    transition: transform 0.15s, background-color 0.15s;
+  }
+  .nav-toggle-icon { position: relative; }
+  .nav-toggle-icon::before,
+  .nav-toggle-icon::after { content: ""; position: absolute; left: 0; }
+  .nav-toggle-icon::before { top: -5px; }
+  .nav-toggle-icon::after { top: 5px; }
+  .nav-open .nav-toggle-icon { background: transparent; }
+  .nav-open .nav-toggle-icon::before { transform: translateY(5px) rotate(45deg); }
+  .nav-open .nav-toggle-icon::after { transform: translateY(-5px) rotate(-45deg); }
+  .site-nav { order: 4; flex-basis: 100%; margin-left: 0; }
+  .js .site-nav { display: none; }
+  .js .nav-open .site-nav { display: flex; flex-direction: column; gap: 0; }
+  .js .site-nav a { padding: 0.75rem 0; border-top: 1px solid var(--border); font-size: 1rem; }
+}
+@media (max-width: 35.99rem) {
+  .cycle-badge { display: none; }
+}
 
 /* Hero */
 .hero { padding: 4.5rem 0 3rem; text-align: center; }
@@ -104,6 +166,9 @@ a:hover { text-decoration: underline; }
 .home-col .item-list { margin-top: 0.5rem; }
 .home-col .item-list h3 { margin: 0 0 0.25rem; font-size: 1.05rem; }
 .home-col .item-list .meta { margin: 0; }
+.home-col .item-list .meta + .meta { margin-top: 0.15rem; }
+.home-col .pubstate { float: none; margin: 0 0.5rem 0 0; vertical-align: 0.1em; }
+.home-selection--single .wrap { max-width: 760px; grid-template-columns: 1fr; }
 
 /* Generic page */
 .page { padding: 3rem 0; }

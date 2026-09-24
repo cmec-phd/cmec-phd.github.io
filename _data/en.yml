@@ -7,8 +7,13 @@ nav:
   news: "News & Events"
   contacts: "Contacts"
   cycle_badge: "Cycle XLI · ongoing"
+  label: "Main"
+  menu: "Menu"
+  skip: "Skip to content"
 
 home:
+  meta_title: "CMEC PhD — Conservatorio di Musica \"N. Piccinni\" di Bari"
+  meta_description: "PhD programme in computational electroacoustic music composition, generative algorithmic models and computational complexity at the Conservatorio di Musica \"N. Piccinni\" of Bari."
   hero_kicker: "Doctoral programme"
   hero_tagline: "Computational Electroacoustic Music Composition, Generative Algorithmic Models and Computational Complexity"
   hero_institution: "Conservatorio di Musica \"N. Piccinni\" di Bari — Cycle XLI"
@@ -16,11 +21,11 @@ home:
   about_text: "The doctoral programme at the Conservatorio \"N. Piccinni\" of Bari trains researchers and composers in computational electroacoustic composition, generative algorithmic models and computational complexity, bringing together artistic practice and scientific research."
   about_more: "Discover the programme"
   selected_research: "Selected publications"
-  selected_news: "Upcoming events & news"
+  upcoming_events: "Upcoming events"
+  latest_news: "Latest news"
   all_research: "All publications"
   all_news: "All news"
   empty_research: "No publications yet."
-  empty_news: "No events yet."
 
 research:
   pubstate:

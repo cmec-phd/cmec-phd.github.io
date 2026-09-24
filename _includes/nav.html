@@ -1,13 +1,18 @@
 {% assign t = site.data[page.lang] %}
 {% assign prefix = "" %}
 {% unless page.lang == site.default_lang %}{% assign prefix = "/" | append: page.lang %}{% endunless %}
+<a class="skip-link" href="#main">{{ t.nav.skip }}</a>
 <header class="site-header">
   <div class="wrap">
     <a class="brand" href="{{ prefix | append: '/' | relative_url }}">
       <img class="brand-mark" src="{{ '/assets/images/logo/cmec-logo-white.svg' | relative_url }}" alt="">
       CMEC PhD
     </a>
-    <nav class="site-nav">
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+      <span class="nav-toggle-icon" aria-hidden="true"></span>
+      {{ t.nav.menu }}
+    </button>
+    <nav class="site-nav" id="site-nav" aria-label="{{ t.nav.label }}">
       <a href="{{ prefix | append: '/programme/' | relative_url }}">{{ t.nav.programme }}</a>
       <a href="{{ prefix | append: '/people/' | relative_url }}">{{ t.nav.people }}</a>
       <a href="{{ prefix | append: '/research/' | relative_url }}">{{ t.nav.research }}</a>
@@ -21,3 +26,19 @@
     </div>
   </div>
 </header>
+<script>
+  (function () {
+    var toggle = document.querySelector(".nav-toggle");
+    var header = document.querySelector(".site-header");
+    function set(open) {
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      header.classList.toggle("nav-open", open);
+    }
+    toggle.addEventListener("click", function () {
+      set(toggle.getAttribute("aria-expanded") !== "true");
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && header.classList.contains("nav-open")) { set(false); toggle.focus(); }
+    });
+  })();
+</script>

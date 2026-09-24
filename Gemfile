@@ -5,6 +5,11 @@ gem "jekyll-polyglot"
 gem "jekyll-feed"
 gem "jekyll-sitemap"
 
+# Research collection is generated from _bibliography/research.bib
+# (see _plugins/bibtex_research.rb)
+gem "bibtex-ruby"
+gem "latex-decode"
+
 # Windows and JRuby does not include zoneinfo files, so bundle the tzinfo-data gem
 platforms :mingw, :x64_mingw, :mswin, :jruby do
   gem "tzinfo", ">= 1", "< 3"

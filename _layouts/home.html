@@ -31,7 +31,7 @@ layout: default
         {% for item in research %}
         <li>
           <h3><a href="{{ item.url | relative_url }}">{{ item.title }}</a></h3>
-          <p class="meta">{% if item.authors %}{{ item.authors | join: ", " }}{% endif %}{% if item.authors and item.date %} — {% endif %}{% if item.date %}{{ item.date | date: "%Y" }}{% endif %}</p>
+          <p class="meta">{% include pubstate.html item=item lang=page.lang %}{% if item.authors %}{{ item.authors | join: ", " }}{% endif %}{% if item.authors and item.date %} — {% endif %}{% if item.date %}{{ item.date | date: "%Y" }}{% endif %}</p>
         </li>
         {% else %}
         <li><em>{{ t.home.empty_research }}</em></li>

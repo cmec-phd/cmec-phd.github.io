@@ -53,7 +53,7 @@ layout: default
     <section class="person-section">
       <h2>{{ t.publications }}</h2>
       <ul class="item-list compact">
-        {% for r in pubs %}<li><a href="{{ r.url | relative_url }}">{{ r.title }}</a>{% if r.date %} <span class="meta">· {{ r.date | date: "%Y" }}</span>{% endif %}</li>{% endfor %}
+        {% for r in pubs %}<li>{% include pubstate.html item=r lang=page.lang %}<a href="{{ r.url | relative_url }}">{{ r.title }}</a>{% if r.date %} <span class="meta">· {{ r.date | date: "%Y" }}</span>{% endif %}</li>{% endfor %}
       </ul>
     </section>
     {% endif %}

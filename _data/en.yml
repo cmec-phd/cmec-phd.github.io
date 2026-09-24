@@ -22,6 +22,13 @@ home:
   empty_research: "No publications yet."
   empty_news: "No events yet."
 
+research:
+  pubstate:
+    submitted: "Submitted"
+    accepted: "Accepted"
+    inpress: "In press"
+    forthcoming: "Forthcoming"
+
 footer:
   institution: "Conservatorio di Musica \"N. Piccinni\" di Bari"
   rights: "All rights reserved."

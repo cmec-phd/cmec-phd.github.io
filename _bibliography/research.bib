@@ -1,0 +1,86 @@
+% Publications of the CMEC PhD programme.
+%
+% This file is the single source of the Research section: every entry
+% becomes a page at /research/<citekey>/ in both languages (see
+% _plugins/bibtex_research.rb and CONTRIBUTING.md). Export from Zotero or
+% any reference manager and paste the entries below.
+%
+% Used fields: author (or editor), title, year/month or date, journal /
+% booktitle / publisher, doi or url, abstract (English).
+
+@inproceedings{vitucci2026timeline,
+  author        = {Vitucci, Francesco and Lorusso, Michele and Scagliola, Francesco},
+  title         = {One Timeline, Many Renderings: A {Wolfram Language} Paclet for Heterogeneous Musical Output},
+  booktitle     = {International Csound Conference (ICSC 2026)},
+  year          = {2026},
+  month         = aug,
+  pubstate      = {accepted},
+  eprint        = {2608.24683},
+  archiveprefix = {arXiv},
+  primaryclass  = {cs.CL},
+  doi           = {10.48550/arXiv.2608.24683},
+  url           = {https://arxiv.org/abs/2608.24683},
+  abstract      = {One algorithmic composition may require a Csound score, engraved notation, real-time control, and a rehearsal click. Authored separately, their timelines drift. Temporal System is a Wolfram Language paclet that instead compiles one immutable store of typed entities on a rational beat timeline through backend-specific contracts. It emits Csound synthesis, beta MusicXML 4.0, OSC control, and click artifacts that remain synchronized because they share that store. Conversion to seconds, samples, or hertz occurs only at render time. Csound notes use stable named instruments in external .orc files; curves become k-rate signals declared against score p-fields. The click backend derives rehearsal audio from the same meter and tempo and reuses the Csound serializer. We describe the temporal, semantic, and rendering-contract layers, their practical trade-offs, and the limits of this proprietary authoring environment within an otherwise open-source ecosystem. The archived supplement exposes the reported outputs pending paclet release.}
+}
+
+@inproceedings{vitucci2026kernels,
+  author        = {Vitucci, Francesco and Lorusso, Michele and Scagliola, Francesco},
+  title         = {From Local Kernels to Global Form: Modeling the Emergence of Musical Content},
+  booktitle     = {XXV Colloquio di Informatica Musicale (CIM 2026), L'Aquila},
+  year          = {2026},
+  month         = aug,
+  pubstate      = {accepted},
+  eprint        = {2608.24660},
+  archiveprefix = {arXiv},
+  primaryclass  = {cs.CL},
+  doi           = {10.48550/arXiv.2608.24660},
+  url           = {https://arxiv.org/abs/2608.24660},
+  abstract      = {Markov models are established tools for symbolic music, including non-homogeneous formulations. The narrower contribution examined here is an observation-driven estimation mechanism: overlapping sliding windows derive a trajectory of local transition kernels from one symbolic sequence rather than from an exogenous formal partition. We test this mechanism on 273 logical note events from Debussy's Syrinx (1913), using the often-proposed A-B-A' reading as a reference rather than ground truth. We apply the same validation to absolute-pitch and notated-duration kernels. At L = 6, both reference boundaries attain the Jensen–Shannon maximum in both dimensions; the duration plateau is substantially narrower (64 of 267 comparisons) than the pitch plateau (210 of 267). Because the theoretical maximum for consecutive sliding-window comparisons is set by window geometry and equals 1/√(L − 1) for maximal turnover of the entering/leaving transition, the pitch value at L = 6 and its broad plateau are not, by themselves, strong evidence. Their cross-dimensional alignment is consistent with boundary sensitivity, while the broad plateaus preclude treating either curve alone as a unique automatic segmenter. Five-hundred-draw re-synthesis experiments quantify departure from the source in both dimensions and expose an exact-copy degeneracy at L = 2.}
+}
+
+@inproceedings{vitucci2026lethe,
+  author        = {Vitucci, Francesco and Di Furia, Anthony and Scagliola, Francesco},
+  title         = {Memory as Transformation: {LETHE}, a Self-Referential {GAN}-Inspired Architecture},
+  booktitle     = {XXV Colloquio di Informatica Musicale (CIM 2026), L'Aquila},
+  year          = {2026},
+  month         = sep,
+  pubstate      = {accepted},
+  eprint        = {2609.04289},
+  archiveprefix = {arXiv},
+  primaryclass  = {cs.CL},
+  doi           = {10.48550/arXiv.2609.04289},
+  url           = {https://arxiv.org/abs/2609.04289},
+  abstract      = {LETHE (Latent-parameter Evolution with Temporal Hierarchical quasi-Equilibrium) is a self-referential sonic-oblivion system implemented in SuperCollider. It adopts the formal vocabulary of Generative Adversarial Networks in a closed configuration without external datasets or supervision after initialization. Audio is processed by a 3 × 3 mixing matrix built around two delay lines; its nine coefficients and two delay times evolve through the interaction of a five-feature linear discriminator and a random-perturbation optimizer analogous to single-sample REINFORCE. The discriminator compares current energy behavior with an archive of the initial state and guides parameter updates. Circular, fixed, and live sources can be mixed independently. Across fixed and circular sessions with an ablation control, the active generator is necessary for parametric evolution (Δc₂₂ = 0.000 in all 15 ablation sessions). Situated in the tradition of self-referential electroacoustic music, LETHE delegates the sonic outcome to an adaptive closed loop whose parametric space is defined by the composer.}
+}
+
+@inproceedings{vitucci2024opening,
+  author        = {Vitucci, Francesco and Silvi, Giuseppe and Annese, Daniele Giuseppe and Scagliola, Francesco and Di Furia, Anthony},
+  title         = {Opening Mind by Opening Architecture: Analysis Strategies},
+  booktitle     = {Proceedings of the 7th International Csound Conference (ICSC 2024)},
+  publisher     = {University of Music and Performing Arts Vienna},
+  address       = {Vienna},
+  year          = {2024},
+  month         = sep,
+  pages         = {127--131},
+  eprint        = {2609.03719},
+  archiveprefix = {arXiv},
+  primaryclass  = {cs.CL},
+  doi           = {10.48550/arXiv.2609.03719},
+  url           = {https://arxiv.org/abs/2609.03719},
+  abstract      = {In numerical signal processing for electroacoustic composition, the progressive loss of specific development and research environments caused by the increasing use of digital market tools has favoured the dominance of the closed-architecture audio processor model. This model, while powerful, envisions the possibility of describing output data about its perceived characteristics, but at the cost of ignoring its internal process and interacting systems, which become complex, powerful environments but closed in an inscrutable black box, a loss we must consider. Any digital signal processing technique tells a story. Just as the words of a language incorporate social, historical and technical polysemic layers, a signal processor has its own story of implementation, a gradual technological achievement with its inevitable aesthetic consequences. Through the looking-glass of literature, one can access those environments with renewed awareness by reestablishing a scientific method and an attitude to research. In this specific case, starting from the case study of Manfred Schroeder's historical reverbs, we illustrate the process of building analytical evaluation tools, as well as practical implementation, at the basis of a conscious study path.}
+}
+
+@article{vitucci2024memories,
+  author   = {Vitucci, Francesco and Silvi, Giuseppe and Abbrescia, Francesco and Di Furia, Anthony and Scagliola, Francesco},
+  title    = {In Human Memories. Tecnica, creatività e autodeterminazione: una proposta etica},
+  journal  = {Ex Chordis},
+  number   = {3},
+  pages    = {15--38},
+  year     = {2024},
+  month    = dec,
+  issn     = {3034-8781},
+  langid   = {italian},
+  doi      = {10.54103/3034-8781/26627},
+  url      = {https://riviste.unimi.it/index.php/exchordis/article/view/26627},
+  abstract = {This research investigates the role of artificial intelligence (AI) in modern compositional practices, with a particular focus on two case studies: Convergence (2020/21) by Alexander Schubert, for String Ensemble and AI System, and In Human Memories (2024) by Francesco Vitucci, for four cellos and one electroacoustic player, whose installation was created by the Electronic Music School of the “N. Piccinni” Conservatory of Bari. The initial historical survey traces the evolving use of technology in composition, revealing how the search for new expressive possibilities has driven the development of technological tools through experimentation. The appearance of AI marks a fundamental shift: no longer just a tool, AI now poses questions and challenges to the composer. Engaging with AI becomes an exploration of an unknown entity, whose full capabilities are still largely undiscovered. This new interaction leads composers to confront AI not merely as a passive resource but as a participant in the creative process, outlining an ethical path to reclaim technology as a creative tool. In Human Memories reflects this dynamic, demonstrating how AI can serve as both inspiration and a driving force in shaping contemporary music.}
+}

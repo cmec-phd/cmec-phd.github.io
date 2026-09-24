@@ -1,0 +1,4 @@
+{%- comment -%}Label for a research item that is not yet published (BibLaTeX `pubstate`). Usage: {% include pubstate.html item=r lang=page.lang %}{%- endcomment -%}
+{%- if include.item.pubstate -%}
+<span class="pubstate">{{ site.data[include.lang].research.pubstate[include.item.pubstate] | default: include.item.pubstate }}</span>
+{%- endif -%}

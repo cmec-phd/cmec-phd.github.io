@@ -9,7 +9,7 @@ title: Research
   {% for item in items %}
   <li>
     <h2><a href="{{ item.url | relative_url }}">{{ item.title }}</a></h2>
-    {% if item.date %}<p class="meta">{{ item.date | date: "%B %Y" }}</p>{% endif %}
+    <p class="meta">{% include pubstate.html item=item lang=page.lang %}{% if item.authors %}{{ item.authors | join: ", " }} — {% endif %}{% if item.venue %}{{ item.venue }}, {% endif %}{{ item.date | date: "%Y" }}</p>
   </li>
   {% else %}
   <li><em>No content published yet.</em></li>

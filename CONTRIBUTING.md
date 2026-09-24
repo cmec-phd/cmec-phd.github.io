@@ -25,11 +25,39 @@ a page.
    `permalink` to `/people/your-name/` in **both** files.
 3. Write a short bio in the body, below the closing `---`.
 
-## Adding a research output (`_research/`)
+## Adding a research output (`_bibliography/research.bib`)
 
-Same pattern as People — copy `_research/TEMPLATE.md` into an `.it.md` and
-`.en.md` pair, fill in `title`, `date`, `authors`, optional `link`, and set
-the matching `permalink` values.
+Unlike the other sections, Research is not written as Markdown files: it is
+generated from the BibTeX file `_bibliography/research.bib` (by
+`_plugins/bibtex_research.rb`). Add or edit an entry there — e.g. by
+exporting it from Zotero — and both the Italian and English pages are built
+automatically at `/research/<citekey>/`.
+
+```bibtex
+@inproceedings{rossi2025granular,
+  author    = {Rossi, Mario and Bianchi, Anna},
+  title     = {Title of the paper},
+  booktitle = {Proceedings of the International Computer Music Conference},
+  year      = {2025},
+  month     = may,
+  doi       = {10.1234/example},
+  abstract  = {English abstract. Separate paragraphs with a blank line.}
+}
+```
+
+- **Fields used:** `author` (or `editor`), `title`, `year` + optional
+  `month` (or a BibLaTeX `date`), the venue (`journal`, `booktitle`,
+  `publisher`, …), `doi` or `url`, and `abstract`. Entries without a year
+  are skipped with a warning; a syntax error stops the build.
+- **Not yet published:** add `pubstate = {accepted}` (or `submitted`,
+  `inpress`, `forthcoming`) and the site shows a matching label next to the
+  entry. Remove the field once the paper is out.
+- **Abstract:** write it in English; it is shown as-is on both language
+  versions of the page.
+- **Authors:** write names exactly as in the person's `title` (or one of
+  their `aliases`) so the publication appears on their profile. LaTeX
+  accents such as `{\'e}` are converted automatically.
+- **Citekey:** it becomes the URL, so don't change it once published.
 
 ## Adding a music production (`_productions/`)
 

@@ -13,26 +13,46 @@ layout: default
   </div>
 </section>
 
-<section class="card-grid">
+<section class="home-about">
   <div class="wrap">
-    <a class="card" href="{{ prefix | append: '/programme/' | relative_url }}">
-      <h2>{{ t.nav.programme }}</h2>
-    </a>
-    <a class="card" href="{{ prefix | append: '/people/' | relative_url }}">
-      <h2>{{ t.nav.people }}</h2>
-    </a>
-    <a class="card" href="{{ prefix | append: '/research/' | relative_url }}">
-      <h2>{{ t.nav.research }}</h2>
-    </a>
-    <a class="card" href="{{ prefix | append: '/productions/' | relative_url }}">
-      <h2>{{ t.nav.productions }}</h2>
-    </a>
-    <a class="card" href="{{ prefix | append: '/news/' | relative_url }}">
-      <h2>{{ t.nav.news }}</h2>
-    </a>
-    <a class="card" href="{{ prefix | append: '/contacts/' | relative_url }}">
-      <h2>{{ t.nav.contacts }}</h2>
-    </a>
+    <h2>{{ t.home.about_title }}</h2>
+    <p>{{ t.home.about_text }}</p>
+    <p><a class="more" href="{{ prefix | append: '/programme/' | relative_url }}">{{ t.home.about_more }} →</a></p>
+  </div>
+</section>
+
+{% assign research = site.research | where: "lang", page.lang | sort: "date" | reverse | slice: 0, 3 %}
+{% assign news = site.news | where: "lang", page.lang | sort: "date" | reverse | slice: 0, 3 %}
+<section class="home-selection">
+  <div class="wrap">
+    <div class="home-col">
+      <h2>{{ t.home.selected_research }}</h2>
+      <ul class="item-list">
+        {% for item in research %}
+        <li>
+          <h3><a href="{{ item.url | relative_url }}">{{ item.title }}</a></h3>
+          <p class="meta">{% if item.authors %}{{ item.authors | join: ", " }}{% endif %}{% if item.authors and item.date %} — {% endif %}{% if item.date %}{{ item.date | date: "%Y" }}{% endif %}</p>
+        </li>
+        {% else %}
+        <li><em>{{ t.home.empty_research }}</em></li>
+        {% endfor %}
+      </ul>
+      <p><a class="more" href="{{ prefix | append: '/research/' | relative_url }}">{{ t.home.all_research }} →</a></p>
+    </div>
+    <div class="home-col">
+      <h2>{{ t.home.selected_news }}</h2>
+      <ul class="item-list">
+        {% for item in news %}
+        <li>
+          <h3><a href="{{ item.url | relative_url }}">{{ item.title }}</a></h3>
+          {% if item.date %}<p class="meta">{{ item.date | date: "%d/%m/%Y" }}</p>{% endif %}
+        </li>
+        {% else %}
+        <li><em>{{ t.home.empty_news }}</em></li>
+        {% endfor %}
+      </ul>
+      <p><a class="more" href="{{ prefix | append: '/news/' | relative_url }}">{{ t.home.all_news }} →</a></p>
+    </div>
   </div>
 </section>
 

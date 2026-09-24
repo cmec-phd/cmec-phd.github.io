@@ -12,6 +12,15 @@ home:
   hero_kicker: "Doctoral programme"
   hero_tagline: "Computational Electroacoustic Music Composition, Generative Algorithmic Models and Computational Complexity"
   hero_institution: "Conservatorio di Musica \"N. Piccinni\" di Bari — Cycle XLI"
+  about_title: "The programme"
+  about_text: "The doctoral programme at the Conservatorio \"N. Piccinni\" of Bari trains researchers and composers in computational electroacoustic composition, generative algorithmic models and computational complexity, bringing together artistic practice and scientific research."
+  about_more: "Discover the programme"
+  selected_research: "Selected publications"
+  selected_news: "Upcoming events & news"
+  all_research: "All publications"
+  all_news: "All news"
+  empty_research: "No publications yet."
+  empty_news: "No events yet."
 
 footer:
   institution: "Conservatorio di Musica \"N. Piccinni\" di Bari"

@@ -12,6 +12,15 @@ home:
   hero_kicker: "Dottorato di ricerca"
   hero_tagline: "Composizione musicale elettroacustica computazionale, modelli algoritmici generativi e complessità computazionale"
   hero_institution: "Conservatorio di Musica \"N. Piccinni\" di Bari — Ciclo XLI"
+  about_title: "Il programma"
+  about_text: "Il dottorato di ricerca del Conservatorio \"N. Piccinni\" di Bari forma ricercatori e compositori nell'ambito della composizione elettroacustica computazionale, dei modelli algoritmici generativi e della complessità computazionale, unendo pratica artistica e ricerca scientifica."
+  about_more: "Scopri il programma"
+  selected_research: "Pubblicazioni in evidenza"
+  selected_news: "Prossimi eventi e novità"
+  all_research: "Tutte le pubblicazioni"
+  all_news: "Tutte le news"
+  empty_research: "Nessuna pubblicazione ancora."
+  empty_news: "Nessun evento ancora."
 
 footer:
   institution: "Conservatorio di Musica \"N. Piccinni\" di Bari"

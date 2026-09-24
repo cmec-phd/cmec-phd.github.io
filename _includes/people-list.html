@@ -1,0 +1,17 @@
+{% assign t = site.data[include.lang].people %}
+{% assign items = site.people | where: "lang", include.lang | sort: "order" %}
+{% assign roles = "coordinator,student,board" | split: "," %}
+{% assign shown = 0 %}
+{% for r in roles %}
+  {% assign group = items | where: "role", r %}
+  {% if group.size > 0 %}
+  {% assign shown = shown | plus: 1 %}
+  <section class="people-group">
+    <h2>{{ t.roles[r].many }}</h2>
+    <div class="people-grid">
+      {% for p in group %}{% include person-card.html person=p t=t %}{% endfor %}
+    </div>
+  </section>
+  {% endif %}
+{% endfor %}
+{% if shown == 0 %}<p><em>{{ t.empty }}</em></p>{% endif %}

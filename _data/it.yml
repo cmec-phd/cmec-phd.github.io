@@ -28,3 +28,20 @@ footer:
 
 lang_switcher:
   label: "Lingua"
+
+people:
+  roles:
+    coordinator: { one: "Coordinatore", f: "Coordinatrice", many: "Coordinatore" }
+    student: { one: "Dottorando/a", m: "Dottorando", f: "Dottoranda", many: "Dottorandi" }
+    board: { one: "Membro del Collegio", many: "Collegio dei docenti" }
+  cycle: "Ciclo"
+  topic: "Ricerca"
+  supervisor: "Tutor"
+  affiliation: "Afferenza"
+  website: "Sito web"
+  bio: "Biografia"
+  interests: "Interessi di ricerca"
+  publications: "Pubblicazioni"
+  productions: "Produzioni musicali"
+  profile: "Scheda"
+  empty: "Nessuna scheda pubblicata ancora."

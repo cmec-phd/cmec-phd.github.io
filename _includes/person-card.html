@@ -1,0 +1,21 @@
+{% comment %}
+  Card for one person. Params: person (a document of the `people` collection), t (the language's `people` data).
+  The role label is derived from person.role (coordinator | student | board).
+{% endcomment %}
+{% assign p = include.person %}
+{% assign t = include.t %}
+<a class="person-card" href="{{ p.url | relative_url }}">
+  {% if p.photo %}
+  <img class="person-card-photo" src="{{ p.photo | relative_url }}" alt="" loading="lazy">
+  {% else %}
+  <span class="person-card-photo person-card-initials" aria-hidden="true">{{ p.title | split: " " | first | slice: 0, 1 }}{{ p.title | split: " " | last | slice: 0, 1 }}</span>
+  {% endif %}
+  <span class="person-card-body">
+    <span class="person-card-name">{{ p.title }}</span>
+{% assign rl = t.roles[p.role] %}{% assign g = p.gender | default: "one" %}
+    <span class="person-card-role">{{ rl[g] | default: rl.one }}{% if p.role_detail %} · {{ p.role_detail }}{% endif %}</span>
+    {% if p.cycle %}<span class="person-card-meta">{{ t.cycle }} {{ p.cycle }}</span>{% endif %}
+    {% if p.topic %}<span class="person-card-meta">{{ p.topic }}</span>{% endif %}
+    {% if p.affiliation %}<span class="person-card-meta">{{ p.affiliation }}</span>{% endif %}
+  </span>
+</a>

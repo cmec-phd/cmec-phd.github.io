@@ -114,3 +114,43 @@ a:hover { text-decoration: underline; }
 .site-footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
 
 audio { width: 100%; margin-top: 1rem; }
+
+/* People */
+.people-group { margin-top: 2.5rem; }
+.people-group h2 {
+  font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em;
+  color: var(--fg-muted); border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem; margin: 0 0 1.25rem;
+}
+.people-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.person-card {
+  display: flex; gap: 1rem; align-items: flex-start; padding: 1rem;
+  background: var(--bg-alt); border: 1px solid var(--border); border-radius: 8px;
+  color: var(--fg); transition: border-color 0.15s;
+}
+.person-card:hover { border-color: var(--accent); }
+.person-card-photo { width: 64px; height: 64px; flex: none; border-radius: 50%; object-fit: cover; }
+.person-card-initials {
+  display: flex; align-items: center; justify-content: center;
+  background: var(--accent-deep); color: #fff; font-family: var(--font-serif); font-weight: 700; font-size: 1.2rem;
+}
+.person-card-body { display: flex; flex-direction: column; gap: 0.15rem; min-width: 0; }
+.person-card-name { font-family: var(--font-serif); font-weight: 700; font-size: 1.05rem; }
+.person-card-role { color: var(--accent); font-size: 0.85rem; }
+.person-card-meta { color: var(--fg-muted); font-size: 0.85rem; }
+
+.person-header { display: flex; gap: 2rem; align-items: flex-start; flex-wrap: wrap; margin-bottom: 2rem; }
+.person-header .person-photo { width: 160px; height: 160px; border-radius: 12px; object-fit: cover; font-size: 3rem; }
+.person-header h1 { margin: 0.25rem 0 1rem; }
+.person-role { color: var(--accent); margin: 0; font-size: 0.95rem; }
+.person-facts { display: grid; grid-template-columns: auto 1fr; gap: 0.35rem 1.25rem; margin: 0 0 1rem; }
+.person-facts dt { color: var(--fg-muted); font-size: 0.85rem; }
+.person-facts dd { margin: 0; }
+.person-links { list-style: none; padding: 0; display: flex; gap: 1rem; flex-wrap: wrap; margin: 0; }
+.person-section { margin-top: 2.5rem; }
+.person-section h2 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--fg-muted); border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin: 0 0 1rem; }
+.person-section .page-content { line-height: 1.7; max-width: 70ch; }
+.tag-list { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.tag-list li { border: 1px solid var(--border); background: var(--bg-alt); border-radius: 999px; padding: 0.25rem 0.8rem; font-size: 0.88rem; }
+.item-list.compact { margin-top: 0; }
+.item-list.compact li { padding: 0.6rem 0; }

@@ -4,14 +4,4 @@ lang: en
 permalink: /people/
 title: People
 ---
-{% assign items = site.people | where: "lang", "en" | sort: "order" %}
-<ul class="item-list">
-  {% for item in items %}
-  <li>
-    <h2><a href="{{ item.url | relative_url }}">{{ item.title }}</a></h2>
-    {% if item.role %}<p class="meta">{{ item.role }}</p>{% endif %}
-  </li>
-  {% else %}
-  <li><em>No profiles published yet.</em></li>
-  {% endfor %}
-</ul>
+{% include people-list.html lang="en" %}

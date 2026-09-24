@@ -28,3 +28,20 @@ footer:
 
 lang_switcher:
   label: "Language"
+
+people:
+  roles:
+    coordinator: { one: "Coordinator", many: "Coordinator" }
+    student: { one: "PhD Candidate", many: "PhD Candidates" }
+    board: { one: "Board Member", many: "Academic Board" }
+  cycle: "Cycle"
+  topic: "Research"
+  supervisor: "Supervisor"
+  affiliation: "Affiliation"
+  website: "Website"
+  bio: "Biography"
+  interests: "Research interests"
+  publications: "Publications"
+  productions: "Musical productions"
+  profile: "Profile"
+  empty: "No profiles published yet."

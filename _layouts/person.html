@@ -1,20 +1,77 @@
 ---
 layout: default
 ---
+{% assign t = site.data[page.lang].people %}
 <article class="page person">
   <div class="wrap">
-    {% if page.photo %}<img class="person-photo" src="{{ page.photo | relative_url }}" alt="{{ page.title }}">{% endif %}
-    <h1>{{ page.title }}</h1>
-    {% if page.role %}<p class="person-role">{{ page.role }}</p>{% endif %}
-    <div class="page-content">
-      {{ content }}
-    </div>
-    {% if page.links %}
-    <ul class="person-links">
-      {% for link in page.links %}
-        <li><a href="{{ link.url }}">{{ link.label }}</a></li>
-      {% endfor %}
-    </ul>
+    <header class="person-header">
+      {% if page.photo %}<img class="person-photo" src="{{ page.photo | relative_url }}" alt="{{ page.title }}">
+      {% else %}<span class="person-photo person-card-initials" aria-hidden="true">{{ page.title | split: " " | first | slice: 0, 1 }}{{ page.title | split: " " | last | slice: 0, 1 }}</span>{% endif %}
+      <div>
+{% assign rl = t.roles[page.role] %}{% assign g = page.gender | default: "one" %}
+        <p class="person-role">{{ rl[g] | default: rl.one }}{% if page.role_detail %} · {{ page.role_detail }}{% endif %}</p>
+        <h1>{{ page.title }}</h1>
+        <dl class="person-facts">
+          {% if page.cycle %}<dt>{{ t.cycle }}</dt><dd>{{ page.cycle }}</dd>{% endif %}
+          {% if page.affiliation %}<dt>{{ t.affiliation }}</dt><dd>{{ page.affiliation }}</dd>{% endif %}
+          {% if page.supervisor %}<dt>{{ t.supervisor }}</dt><dd>{{ page.supervisor }}</dd>{% endif %}
+          {% if page.topic %}<dt>{{ t.topic }}</dt><dd>{{ page.topic }}</dd>{% endif %}
+          {% if page.website %}<dt>{{ t.website }}</dt><dd><a href="{{ page.website }}" rel="noopener">{{ page.website | remove: "https://" | remove: "http://" | remove: "www." | split: "/" | first }}</a></dd>{% endif %}
+        </dl>
+        {% if page.links %}
+        <ul class="person-links">
+          {% for link in page.links %}<li><a href="{{ link.url }}">{{ link.label }}</a></li>{% endfor %}
+        </ul>
+        {% endif %}
+      </div>
+    </header>
+    {% assign bio = content | strip %}
+    {% if bio != "" %}
+    <section class="person-section">
+      <h2>{{ t.bio }}</h2>
+      <div class="page-content">{{ content }}</div>
+    </section>
+    {% endif %}
+    {% if page.interests %}
+    <section class="person-section">
+      <h2>{{ t.interests }}</h2>
+      <ul class="tag-list">{% for i in page.interests %}<li>{{ i }}</li>{% endfor %}</ul>
+    </section>
+    {% endif %}
+    {% assign no_aliases = "" | split: "," %}
+    {% assign names = page.title | split: "§" %}
+    {% if page.aliases %}{% assign names = names | concat: page.aliases %}{% endif %}
+    {% assign all_pubs = site.research | where: "lang", page.lang | sort: "date" | reverse %}
+    {% assign pubs = no_aliases %}
+    {% for r in all_pubs %}
+      {% assign authors = r.authors | join: "§" | split: "§" %}
+      {% assign hit = false %}
+      {% for n in names %}{% if authors contains n %}{% assign hit = true %}{% endif %}{% endfor %}
+      {% if hit %}{% assign pubs = pubs | push: r %}{% endif %}
+    {% endfor %}
+    {% if pubs.size > 0 %}
+    <section class="person-section">
+      <h2>{{ t.publications }}</h2>
+      <ul class="item-list compact">
+        {% for r in pubs %}<li><a href="{{ r.url | relative_url }}">{{ r.title }}</a>{% if r.date %} <span class="meta">· {{ r.date | date: "%Y" }}</span>{% endif %}</li>{% endfor %}
+      </ul>
+    </section>
+    {% endif %}
+    {% assign all_works = site.productions | where: "lang", page.lang | sort: "date" | reverse %}
+    {% assign works = no_aliases %}
+    {% for w in all_works %}
+      {% assign comps = w.composer | join: "§" | split: "§" %}
+      {% assign hit = false %}
+      {% for n in names %}{% if comps contains n %}{% assign hit = true %}{% endif %}{% endfor %}
+      {% if hit %}{% assign works = works | push: w %}{% endif %}
+    {% endfor %}
+    {% if works.size > 0 %}
+    <section class="person-section">
+      <h2>{{ t.productions }}</h2>
+      <ul class="item-list compact">
+        {% for w in works %}<li><a href="{{ w.url | relative_url }}">{{ w.title }}</a>{% if w.date %} <span class="meta">· {{ w.date | date: "%Y" }}</span>{% endif %}</li>{% endfor %}
+      </ul>
+    </section>
     {% endif %}
   </div>
 </article>

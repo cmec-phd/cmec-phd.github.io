@@ -11,7 +11,16 @@ published: false
 #    (lower = higher up); leave it out to sort last.
 lang: it
 title: "Nome Cognome"
-role: "Ruolo (es. Coordinatore, Dottorando/a, Docente)"
+role: coordinator | student | board   # chiave: determina la categoria in Persone
+role_detail: "Qualifica opzionale (es. Docente di Composizione)"
+gender: m | f   # opzionale: sceglie la forma grammaticale (Dottorando/Dottoranda, Coordinatore/Coordinatrice)
+cycle: "XLI"            # solo dottorandi
+topic: "Tema di ricerca"
+supervisor: "Tutor"
+affiliation: "Ente"
+website: "https://example.org"   # opzionale
+interests: ["Interesse 1", "Interesse 2"]   # opzionale
+aliases: ["F. Vitucci", "Vitucci, Francesco"]   # opzionale: varianti del nome usate in authors/composer
 order: 10
 photo: /assets/images/people/example.jpg
 links:
@@ -21,4 +30,4 @@ links:
     url: "https://example.org"
 ---
 
-Breve biografia (2-4 righe): area di ricerca, formazione, interessi.
+Biografia (testo libero, anche più paragrafi). Le pubblicazioni (collezione research, campo authors) e le produzioni (collezione productions, campo composer) che riportano esattamente il nome in `title` compaiono automaticamente.

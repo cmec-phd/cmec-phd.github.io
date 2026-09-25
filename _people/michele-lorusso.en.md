@@ -7,8 +7,11 @@ order: 3
 cycle: "XLI"
 permalink: /people/michele-lorusso/
 website: "https://84ky.github.io/"
-affiliation: "Conservatorio di Musica \"N. Piccinni\" - Bari"
-interests: ["Interesse 1", "Interesse 2"]
+affiliation: "Conservatory of Music \"N. Piccinni\" - Bari"
+photo: /assets/images/people/michele-lorusso.jpg
+interests: ["Generative models", "Algorithmic composition", "Video art", "New media", "Creative coding"]
 ---
 
-Biografia (testo libero, anche più paragrafi). Le pubblicazioni (collezione research, campo authors) e le produzioni (collezione productions, campo composer) che riportano esattamente il nome in `title` compaiono automaticamente.
+Electroacoustic composer, visual artist, and creative coder.
+
+After studying piano, he turned to electronic music, earning a second-level academic diploma at the “N. Piccinni” Conservatory in Bari. His artistic work explores new media and new languages, investigating how they can communicate and interact with one another.

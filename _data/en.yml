@@ -57,3 +57,14 @@ people:
   productions: "Musical productions"
   profile: "Profile"
   empty: "No profiles published yet."
+
+dates:
+  months: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+
+news:
+  types:
+    conference: "Conference"
+    concert: "Concert"
+    outreach: "Outreach"
+  link: "Event website"
+  empty: "No news published yet."

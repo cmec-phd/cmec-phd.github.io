@@ -82,7 +82,7 @@ layout: default
         {% for item in news %}
         <li>
           <h3><a href="{{ item.url | relative_url }}">{{ item.title }}</a></h3>
-          {% if item.date %}<p class="meta"><time datetime="{{ item.date | date: '%Y-%m-%d' }}">{% if page.lang == "en" %}{{ item.date | date: "%-d %b %Y" }}{% else %}{{ item.date | date: "%d/%m/%Y" }}{% endif %}</time></p>{% endif %}
+          {% if item.date %}<p class="meta">{% include news-meta.html item=item lang=page.lang %}</p>{% endif %}
         </li>
         {% endfor %}
       </ul>

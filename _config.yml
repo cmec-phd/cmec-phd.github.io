@@ -26,6 +26,10 @@ default_lang: "it"
 exclude_from_localization: ["assets", "images", "javascript"]
 parallel_localization: false
 
+# News items announce upcoming events, so documents dated in the future
+# must be published too.
+future: true
+
 collections:
   people:
     output: true

@@ -1,0 +1,5 @@
+{%- comment -%}One-line summary of a news item for listings: type · date · city. Usage: {% include news-meta.html item=item lang=page.lang %}{%- endcomment -%}
+{%- assign t = site.data[include.lang].news -%}
+{%- if include.item.type -%}{{ t.types[include.item.type] | default: include.item.type }} · {% endif -%}
+<time datetime="{{ include.item.date | date: '%Y-%m-%d' }}">{% include date.html date=include.item.date lang=include.lang %}</time>
+{%- if include.item.city %} · {{ include.item.city }}{% endif -%}

@@ -57,3 +57,14 @@ people:
   productions: "Produzioni musicali"
   profile: "Scheda"
   empty: "Nessuna scheda pubblicata ancora."
+
+dates:
+  months: ["gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno", "luglio", "agosto", "settembre", "ottobre", "novembre", "dicembre"]
+
+news:
+  types:
+    conference: "Conferenza"
+    concert: "Concerto"
+    outreach: "Divulgazione"
+  link: "Sito dell'evento"
+  empty: "Nessuna notizia pubblicata ancora."

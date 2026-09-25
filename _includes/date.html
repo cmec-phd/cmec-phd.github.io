@@ -1,0 +1,5 @@
+{%- comment -%}Date with the month name in the page language. Usage: {% include date.html date=d lang=page.lang %}; add format="month" for month and year only.{%- endcomment -%}
+{%- assign months = site.data[include.lang].dates.months -%}
+{%- assign mi = include.date | date: "%-m" | minus: 1 -%}
+{%- if include.format == "month" -%}{{ months[mi] }} {{ include.date | date: "%Y" }}
+{%- else -%}{{ include.date | date: "%-d" }} {{ months[mi] }} {{ include.date | date: "%Y" }}{%- endif -%}

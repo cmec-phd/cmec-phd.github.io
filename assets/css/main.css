@@ -176,6 +176,8 @@ main:focus { outline: none; }
 .page > .wrap > .page-content { max-width: 70ch; line-height: 1.7; }
 .page-content h2 { margin-top: 2.5rem; }
 .meta { color: var(--fg-muted); font-size: 0.9rem; }
+.news-type { color: var(--accent); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 0.5rem; }
+.news-item h1 { margin-bottom: 0.5rem; }
 
 /* Listing pages */
 .item-list { list-style: none; padding: 0; margin: 2rem 0 0; }

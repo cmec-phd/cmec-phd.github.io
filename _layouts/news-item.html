@@ -1,12 +1,15 @@
 ---
 layout: default
 ---
+{% assign t = site.data[page.lang].news %}
 <article class="page news-item">
   <div class="wrap">
+    {% if page.type %}<p class="news-type">{{ t.types[page.type] | default: page.type }}</p>{% endif %}
     <h1>{{ page.title }}</h1>
-    {% if page.date %}<p class="meta">{{ page.date | date: "%d %B %Y" }}</p>{% endif %}
+    {% if page.date %}<p class="meta"><time datetime="{{ page.date | date: '%Y-%m-%d' }}">{% include date.html date=page.date lang=page.lang %}</time>{% if page.time %} · {{ page.time }}{% endif %}{% if page.venue or page.city %}<br>{{ page.venue }}{% if page.venue and page.city %}, {% endif %}{{ page.city }}{% endif %}</p>{% endif %}
     <div class="page-content">
       {{ content }}
     </div>
+    {% if page.link %}<p><a class="more" href="{{ page.link }}" rel="noopener">{{ page.link_label | default: t.link }} →</a></p>{% endif %}
   </div>
 </article>

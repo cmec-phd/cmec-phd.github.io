@@ -9,9 +9,9 @@ title: News & Eventi
   {% for item in items %}
   <li>
     <h2><a href="{{ item.url | relative_url }}">{{ item.title }}</a></h2>
-    {% if item.date %}<p class="meta">{{ item.date | date: "%d %B %Y" }}</p>{% endif %}
+    {% if item.date %}<p class="meta">{% include news-meta.html item=item lang=page.lang %}</p>{% endif %}
   </li>
   {% else %}
-  <li><em>Nessuna notizia pubblicata ancora.</em></li>
+  <li><em>{{ site.data[page.lang].news.empty }}</em></li>
   {% endfor %}
 </ul>

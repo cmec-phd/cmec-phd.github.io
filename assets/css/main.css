@@ -173,6 +173,8 @@ main:focus { outline: none; }
 /* Generic page */
 .page { padding: 3rem 0; }
 .page h1 { font-size: 2rem; margin-bottom: 1.5rem; }
+.page > .wrap > .page-content { max-width: 70ch; line-height: 1.7; }
+.page-content h2 { margin-top: 2.5rem; }
 .meta { color: var(--fg-muted); font-size: 0.9rem; }
 
 /* Listing pages */

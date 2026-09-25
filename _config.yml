@@ -13,7 +13,7 @@ baseurl: ""
 
 # Set to true to serve the maintenance/coming-soon page instead of the
 # real site on every route. Overridden locally by _config_dev.yml.
-under_construction: true
+under_construction: false
 
 institution:
   name: "Conservatorio di Musica \"N. Piccinni\" di Bari"
